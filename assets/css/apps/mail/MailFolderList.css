@@ -1,0 +1,115 @@
+.mail-index {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.mail-folder-list {
+    width: 220px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+}
+
+.mail-folder-list h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5f6368;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 15px;
+}
+
+/* Folder Items */
+.mail-folder-list .folder-item {
+    padding: 10px 15px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+    font-size: 15px;
+    color: #5f6368;
+    transition: all 0.3s ease;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.mail-folder-list .folder-item:hover {
+    background: #f8f9fa;
+    color: #202124;
+}
+
+.mail-folder-list .folder-item.active {
+    background: #fce8e6;
+    color: #d33b27;
+    font-weight: 600;
+}
+
+.mail-folder-list .folder-item.active:hover {
+    background: #f4c7c3;
+}
+
+/* Icons */
+.mail-folder-list .folder-icon {
+    font-size: 18px;
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
+
+.mail-folder-list .folder-label {
+    flex: 1;
+}
+
+/* MAIN CONTENT */
+.mail-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .mail-index {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .mail-folder-list {
+        width: 100%;
+        flex-direction: row;
+        gap: 5px;
+        position: static;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .mail-folder-list h3 {
+        display: none;
+    }
+
+    .mail-folder-list .folder-item {
+        padding: 8px 12px;
+        font-size: 13px;
+        flex-shrink: 0;
+    }
+
+    .mail-main {
+        gap: 10px;
+    }
+}

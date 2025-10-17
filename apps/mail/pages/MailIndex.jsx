@@ -1,5 +1,5 @@
-
 import { MailFilter } from "../cmps/MailFilter.jsx"
+import { MailFolderList } from "../cmps/MailFolderList.jsx"
 import { MailList } from "../cmps/MailList.jsx"
 import { mailService } from "../services/mail.service.js"
 import { showErrorMsg, showSuccessMsg } from "../../../services/event-bus.service.js"
@@ -12,7 +12,8 @@ export function MailIndex() {
 
     const [mails, setMails] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    const [filterBy, setFilterBy] = useState({ txt: '', isRead: '' })
+    const [filterBy, setFilterBy] = useState({ txt: '', isRead: '', folder: 'inbox' })
+    const [currentFolder, setCurrentFolder] = useState('inbox')
 
     useEffect(() => {
         setSearchParams(utilService.cleanObject(filterBy))
@@ -44,12 +45,21 @@ export function MailIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterByToEdit }))
     }
 
+    function onSelectFolder(folderId) {
+        setCurrentFolder(folderId)
+        onSetFilterBy({ folder: folderId })
+    }
+
     console.log('MailIndex Render')
     if (!mails) return <div className="loader">Loading...</div>
+
     return (
         <section className="mail-index">
-            <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
-            <MailList onRemoveMail={onRemoveMail} mails={mails} />
+            <MailFolderList onSelectFolder={onSelectFolder} currentFolder={currentFolder} />
+            <div className="mail-main">
+                <MailFilter onSetFilterBy={onSetFilterBy} filterBy={filterBy} />
+                <MailList onRemoveMail={onRemoveMail} mails={mails} />
+            </div>
         </section>
     )
 
