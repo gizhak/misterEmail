@@ -1,0 +1,65 @@
+.mail-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.mail-filter h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.mail-filter form {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    /* flex-wrap: wrap; */
+    /* align-items: flex-end; */
+}
+
+.mail-filter label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: 500;
+}
+
+.mail-filter input,
+.mail-filter select {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 200px;
+}
+
+.mail-filter input:focus,
+.mail-filter select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.mail-filter button {
+    padding: 8px 20px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mail-filter button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
