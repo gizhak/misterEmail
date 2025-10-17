@@ -14,14 +14,14 @@ export function MailList({ mails, onRemoveMail }) {
             {mails.map(mail => (
                 <li key={mail.id}>
                     <MailPreview mail={mail} />
-                    <section>
+                    {/* <section>
                         <button onClick={() => onRemoveMail(mail.id)}>
                             Remove
                         </button>
                         <button>
                             <Link to={`/mail/${mail.id}`}>Details</Link>
                         </button>
-                    </section>
+                    </section> */}
                 </li>
             ))}
         </ul>
