@@ -7,7 +7,7 @@ export function MailPreview({ mail }) {
         <article className={mailClass}>
             <div className="mail-from">From: {from}</div>
             <div className="mail-subject">Subject: {subject}</div>
-            <div className="mail-body">{body}</div>
+            {/* <div className="mail-body">{body}</div> */}
             <div className="mail-date">{new Date(sentAt).toLocaleDateString()}</div>
         </article>
     )
