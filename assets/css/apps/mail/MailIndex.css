@@ -1,1 +1,224 @@
- /* mail index  */
+.mail-index {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* ==================== MAIL FILTER ==================== */
+.mail-filter {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.4);
+    color: white;
+}
+
+.mail-filter h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.mail-filter form {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.mail-filter label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.mail-filter input,
+.mail-filter select {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 200px;
+}
+
+.mail-filter input:focus,
+.mail-filter select:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.mail-filter button {
+    padding: 8px 20px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.mail-filter button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== MAIL LIST ==================== */
+.mail-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.mail-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ==================== MAIL PREVIEW ==================== */
+.mail-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+
+    /* 3D Effect */
+    box-shadow:
+        0 4px 6px rgba(0, 0, 0, 0.1),
+        0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform: perspective(1000px) rotateX(0deg);
+    cursor: pointer;
+}
+
+/* UNREAD */
+.mail-preview.unread {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-left: 5px solid #667eea;
+    font-weight: 500;
+}
+
+/* READ */
+.mail-preview.read {
+    opacity: 0.8;
+    border-left: 5px solid #ddd;
+}
+
+/* HOVER EFFECT - 3D */
+.mail-preview:hover {
+    transform:
+        perspective(1000px) rotateX(2deg) translateY(-8px);
+    box-shadow:
+        0 8px 12px rgba(0, 0, 0, 0.15),
+        0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+/* Mail From */
+.mail-from {
+    font-size: 13px;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Mail Subject */
+.mail-subject {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* Mail Body */
+.mail-body {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Mail Date */
+.mail-date {
+    font-size: 12px;
+    color: #999;
+    text-align: right;
+    margin-top: 8px;
+}
+
+/* ==================== BUTTONS ==================== */
+.mail-list li section {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.mail-list button {
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.mail-list button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.5);
+}
+
+.mail-list button:active {
+    transform: translateY(0);
+}
+
+/* ==================== NO MAILS MESSAGE ==================== */
+.mail-list+div,
+.mail-list:empty+div {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .mail-filter form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .mail-filter input,
+    .mail-filter select {
+        min-width: 100%;
+    }
+
+    .mail-preview {
+        padding: 15px;
+    }
+
+    .mail-list li section {
+        flex-direction: column;
+    }
+
+    .mail-list button {
+        width: 100%;
+    }
+}
