@@ -1,3 +1,4 @@
+const { Link } = ReactRouterDOM
 import { MailPreview } from "./MailPreview.jsx"
 
 export function MailList({ mails, onRemoveMail }) {
@@ -18,7 +19,7 @@ export function MailList({ mails, onRemoveMail }) {
                             Remove
                         </button>
                         <button>
-                            Details
+                            <Link to={`/mail/${mail.id}`}>Details</Link>
                         </button>
                     </section>
                 </li>
